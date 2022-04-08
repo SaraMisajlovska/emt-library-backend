@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("https://library-frontend-191517.herokuapp.com")
 @RequestMapping("/api/categories")
 public class CategoriesController {
 
