@@ -2,7 +2,7 @@ package mk.ukim.finki.emtlibrary.model;
 
 import lombok.Data;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -10,23 +10,21 @@ import java.util.List;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
-    String surname;
+    private Long id;
+
+    private String name;
+
+    private String surname;
 
     @ManyToOne
-    Country country;
-
-    @OneToMany
-    List<Book> books;
+    private Country country;
 
     public Author() {
     }
 
-    public Author(String name, String surname, Country country, List<Book> books) {
+    public Author(String name, String surname, Country country) {
         this.name = name;
         this.surname = surname;
         this.country = country;
-        this.books = books;
     }
 }

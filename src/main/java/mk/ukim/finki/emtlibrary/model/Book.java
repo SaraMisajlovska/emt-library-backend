@@ -1,6 +1,6 @@
 package mk.ukim.finki.emtlibrary.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 import mk.ukim.finki.emtlibrary.model.enums.Category;
 
@@ -10,21 +10,25 @@ import mk.ukim.finki.emtlibrary.model.enums.Category;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String name;
+    private String name;
 
-    Category category;
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
     @ManyToOne
-    Author author;
+    private Author author;
+
+    private Integer availableCopies;
 
     public Book() {
     }
 
-    public Book(String name, Category category, Author author) {
+    public Book(String name, Category category, Author author, Integer availableCopies) {
         this.name = name;
         this.category = category;
         this.author = author;
+        this.availableCopies = availableCopies;
     }
 }
